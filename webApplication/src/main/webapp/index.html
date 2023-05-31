@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Hello from Payara!. Prueba desde Patrones</h1>
+        
+        <h1>Student Information</h1>
+        <form action="./BibliotecaServlet" method="GET">
+            <table>
+                <tr>
+                    <td>Student Id</td>
+                    <td><input type="text" name="studentId" value=${student.id} /> ${student.id}</td>
+                    
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td><input type="text" name="firstName" value=${student.nombre} /></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td><input type="text" name="lastName" value=${student.apellido} /></td>
+                </tr>
+                <tr>
+                    <td>Year Level</td>
+                    <td><input type="text" name="yearLevel" value=${student.semestre} /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="action" value="Add" />
+                        <input type="submit" name="action" value="Edit" />
+                        <input type="submit" name="action" value="Delete" />
+                        <input type="submit" name="action" value="Search" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <table border="1">
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Year Level</th>
+                <c:forEach items="${allStudents}" var="stud">
+                <tr>
+                    <td>${stud.id}</td>
+                    <td>${stud.nombre}</td>
+                    <td>${stud.apellido}</td>
+                    <td>${stud.semestre}</td>
+                </tr>
+            </c:forEach> 
+        </table>
+
+
+        <div class="login-box">
+
+            <form>
+                <div class="user-box">
+                    <label><h1>Menu</h1></label>
+                </div>
+                <center>
+                    <a href="./WEB-INF/solicitar/entregar%20o%20solicitar">
+                        Solicitar Libro
+                        <span></span>
+                    </a>
+                </center>
+                <center>
+                    <a href="./WEB-INF/solicitar/reservar">
+                        Reservar Libro
+                        <span></span>
+                    </a>
+                </center>
+                <center>
+                    <a href="./WEB-INF/solicitar/extender">
+                        Extender plazo
+                        <span></span>
+                    </a>
+                </center>
+                <center>
+                    <a href="./WEB-INF/solicitar/entregar%20o%20solicitar">
+                        Devolver Libro
+                        <span></span>
+                    </a>
+                </center>
+                <center>
+                    <a href="./WEB-INF/buscar">
+                        Comprobar disponibilidad
+                        <span></span>
+                    </a>
+                </center>
+            </form>
+        </div>
+        
+    </body>
+</html>
